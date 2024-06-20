@@ -301,8 +301,8 @@ b {
 					<br>
 					<span class="answer">MBS</span>
 					<span class="answer">RWS</span>
-					<span class="answer">BOTH</span>
-					<span class="answer">NONE OF THE ABOVE</span>
+					<span class="answer">Both</span>
+					<span class="answer">None of the Above</span>
 					
 					<br><br>
 				</div>
@@ -342,7 +342,13 @@ b {
 				</div>
 				<div class="validate" id="v1">
 					<h4 style="font-size:22px;color:#810192;">
-						Verifying Please Wait...
+						Verifying ...
+					</h4>
+					<p class="loading"><img src="assets/loading1.gif"></p>
+				</div>
+				<div class="validate" id="v2">
+					<h4 style="font-size:22px;color:#810192;">
+						Please Wait ...
 					</h4>
 					<p class="loading"><img src="assets/loading1.gif"></p>
 				</div>
@@ -474,11 +480,11 @@ b {
 		});
 		setTimeout(function() {
 		$("#v1").hide();
-		$("#winner_modal").modal("show");
+		$("#v2").show();
 		}, 2000);
 		setTimeout(function() {
 		$("#v2").hide();
-		$("#v4").show();
+		$("#winner_modal").modal("show");
 		}, 4500);
 		setTimeout(function() {
 		$("#v4").hide();
