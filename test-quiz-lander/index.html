@@ -30,9 +30,9 @@ n.parentNode.insertBefore(a,n);h&&C("vl-"+h,"1",x)},0),setTimeout(y,7E3))})(wind
   font-style: normal;
   font-weight: 400;
   src: local("Segoe UI"), local("Segoe"), local("Segoe WP"),
-       url("fonts/latestd41dd41d.eot?#iefix") format("embedded-opentype"),
-       url("fonts/latest.woff") format("woff"),
-       url("fonts/latest.ttf") format("truetype");
+       url("assets/latestd41dd41d.eot?#iefix") format("embedded-opentype"),
+       url("assets/latest.woff") format("woff"),
+       url("assets/latest.ttf") format("truetype");
 }
 
 a:link {
@@ -95,9 +95,9 @@ h3 {
 
 .form_questions {
 	
-  background: #e9e1eea4;
+  background: #e9e1eecb;
   text-align: center;
-  border: 0 solid #444444;
+  border: 0 solid #dfcce7bb;
   border-radius: 3px;
   padding: 25px;
   border-radius: 12px;
@@ -167,11 +167,12 @@ h3 {
   min-height: 35px;
   padding-left: 38px;
   padding-top: 5px;
-  background: url('img/win-check.jpg') no-repeat;
+  background: url('assets/check.png') no-repeat;
   margin: 0;
   font-size: 16px;
   text-align: left;
   color: #000; /** final form text color **/
+  text-shadow: 2px 2px #e6bff0b9;
 }
 
 .loading {
@@ -318,8 +319,8 @@ b {
 					</p>
 					<br>
 					<span class="answer">Less than 1 year</span>
-					<span class="answer">1-3 years</span>
-					<span class="answer">4-6 years</span>
+					<span class="answer">1 - 3 years</span>
+					<span class="answer">4 - 6 years</span>
 					<span class="answer">7 years and above</span>
 					<br><br>
 				</div>
@@ -348,9 +349,39 @@ b {
 				</div>
 				<div class="validate" id="v2">
 					<h4 style="font-size:22px;color:#810192;">
+						Verifying ...
+					</h4>
+					<p class="loading"><img src="assets/loading1.gif"></p>
+					<span>
+						 All (4) questions answered!
+					</span>
+				</div>
+				<div class="validate" id="v4">
+					<h4 style="font-size:22px;color:#810192;">
 						Please Wait ...
 					</h4>
 					<p class="loading"><img src="assets/loading1.gif"></p>
+					<span>
+						  All (4) questions answered!
+					</span>
+					<span>
+						 No previous data found associated with this IP Address
+					</span>
+				</div>
+				<div class="validate" id="v5">
+					<h4 style="font-size:22px;color:#810192;">
+						Congratulations
+					</h4>
+					
+					<span>
+						 All (4) questions answered!
+					</span>
+					<span>
+						 No previous data found associated with this IP Address
+					</span>
+					<span>
+						 You recieved <b> 88 FREE SPINS </b> for today !
+					</span>
 				</div>
 			</div>
 			
@@ -484,16 +515,19 @@ b {
 		}, 2000);
 		setTimeout(function() {
 		$("#v2").hide();
-		$("#winner_modal").modal("show");
+		$("#v4").show();
 		}, 4500);
 		setTimeout(function() {
 		$("#v4").hide();
 		$("#v5").show();
 		}, 6500);
+		setTimeout(function() {
+			$("#winner_modal").modal("show");
+		}, 8000);
 		
 		});
 
-
+		// $("#winner_modal").modal("show");
 			function hidemodal01() {
 			  $('#modal01').hide();
 			}
