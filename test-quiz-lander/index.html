@@ -300,10 +300,10 @@ b {
 						
 					</p>
 					<br>
-					<span class="answer">MBS</span>
-					<span class="answer">RWS</span>
-					<span class="answer">Both</span>
-					<span class="answer">None of the Above</span>
+					<span class="answer" onclick="getcard('MBS')">MBS</span>
+					<span class="answer" onclick="getcard('RWS')">RWS</span>
+					<span class="answer" onclick="getcard('both')">Both</span>
+					<span class="answer" onclick="getcard('default')">None of the Above</span>
 					
 					<br><br>
 				</div>
@@ -470,7 +470,7 @@ b {
 				<div class="modal-content">
 					<div class="modal-body text-center">
 						<a href="https://rettablewizette.com/click">
-						<img class="pop" src="assets/pop.png" style="cursor: pointer;">
+						<img class="pop" id="winmodal" src="assets/pop.png" style="cursor: pointer;">
 						</a>
 					</div>
 				</div>
@@ -481,7 +481,7 @@ b {
 			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 			crossorigin="anonymous"></script>
 		<script>
-
+			var cardname = ''
 		$("#q1 .answer").click(function() {
 		$('.box').hide();
 		
@@ -522,6 +522,23 @@ b {
 		$("#v5").show();
 		}, 6500);
 		setTimeout(function() {
+					var popup = document.getElementById('winmodal')
+						if(cardname == 'RWS'){
+							popup.src = 'assets/winRWS.png';
+							
+						}
+						else if(cardname == 'MBS'){
+							popup.src = "assets/winMBS.png";
+							
+						}
+						else if(cardname == 'both'){
+							popup.src =  "assets/winMBSRWS.png";
+							
+						}
+						else{
+							popup.src =  "assets/pop.png";
+							
+						}			
 			$("#winner_modal").modal("show");
 		}, 8000);
 		
@@ -597,7 +614,8 @@ b {
 			      } else {
 			        $(this).attr('src', "assets/win.png");
 			        setTimeout(function () {
-			
+						
+						
 			          $("#winner_modal").modal("show");
 			
 			          // var modal03 = document.getElementById("winner_modal").className +=
@@ -624,6 +642,10 @@ b {
 			});
 			
 			countdown(10);
+			
+			function getcard(a){
+				cardname = a;
+			}
 			
 			function countdown(minutes) {
 			  var seconds = 60;
